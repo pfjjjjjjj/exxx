@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(500,350);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/bg.png");
+		bg.width=500;
+		bg.height=350;
+        app.stage.addChild(bg);
+		
+		var dw = new PIXI.Text("端午节");
+		app.stage.addChild(dw);
+		dw.x=50;
+		dw.y=150;
+		var cj = new PIXI.Text("春节");
+		app.stage.addChild(cj);
+		cj.x=50;
+		cj.y=200;
+		
+		var chunjie = new PIXI.Sprite.fromImage("res/chunjie.png");
+		chunjie.width=500;
+		chunjie.height=350;
+		app.stage.addChild(chunjie);
+		chunjie.visible=false;
+		
+		var duanwu = new PIXI.Sprite.fromImage("res/duanwu.png");
+		duanwu.width=500;
+		duanwu.height=350;
+		app.stage.addChild(duanwu);
+		duanwu.visible=false;
+		
+		var fanhui = new PIXI.Sprite.fromImage("res/fanhui.png");
+		fanhui.x=450;
+		fanhui.y=315;
+		fanhui.width=50;
+		fanhui.height=35;
+		app.stage.addChild(fanhui);
+		fanhui.visible=false;
+		
+		dw.interactive=true;
+		dw.on("click",dww);
+		cj.interactive=true;
+		cj.on("click",cjj);
+		fanhui.interactive=true;
+		fanhui.on("click",fh);
+		
+		function dww(){
+			bg.visible=false;
+			duanwu.visible=true;
+			fanhui.visible=true;
+		}
+		
+		function cjj(){
+			bg.visible=false;
+			chunjie.visible=true;
+			fanhui.visible=true;
+		}
+		
+		function fh(){
+			bg.visible=true;
+			duanwu.visible=false;
+			fanhui.visible=false;
+			chunjie.visible=false;
+		}
+    </script>
+</body>
+</html>
